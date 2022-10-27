@@ -10,10 +10,11 @@ Time = ''
 Beginning = ''
 Change = ''
 Duration = ''
-Function_Easing = ['linear']
-Method_Easing = []
+Function_Easing = ['quadratic','linear']    # linear不得在第一
+Method_Easing = ['In','Out','InOut']
 Choose_Function = ''
 Choose_Method = ''
+
 
 
 
@@ -36,6 +37,27 @@ class Ui(Ui_Form, QtWidgets.QWidget):
 
         self.pushButton.clicked.connect(getdata)
 
+        self.comboBox_functions.currentIndexChanged.connect(switch)
+
+
+
+def switch():
+    # 用于切换线性和函数
+    print(Main_window.comboBox_functions.currentText())
+    if Main_window.comboBox_functions.currentText() == 'linear':
+        Main_window.comboBox_method.clear()
+        Main_window.comboBox_method.addItem('none')
+    else:
+        Main_window.comboBox_method.clear()
+        Main_window.comboBox_method.addItems(Method_Easing)
+
+
+
+
+
+
+
+
 
 
 def getdata():
@@ -50,8 +72,13 @@ def getdata():
     Choose_Function = Main_window.comboBox_functions.currentText()
     Choose_Method = Main_window.comboBox_method.currentText()
 
-    # 判断选择函数
-    judge(Choose_Function,Choose_Method,Time,Beginning,Change,Duration)
+    # 判断选择函数并输出
+    function_export = judge(Choose_Function,Choose_Method,Time,Beginning,Change,Duration)
+    export(function_export)
+
+def export(function_export):
+    # 用于显示输出
+    Main_window.plainTextEdit_export.setPlainText(function_export)
 
 
 
