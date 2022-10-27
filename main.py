@@ -38,7 +38,7 @@ class Ui(Ui_Form, QtWidgets.QWidget):
 
 
 def getdata():
-    # 获取信息
+    # 获取信息并判断
     global Time, Beginning, Change, Duration,Choose_Function,Choose_Method
     # 获取TBCD信息
     Time = Main_window.lineEdit_time.text()
@@ -48,7 +48,10 @@ def getdata():
     # 获取函数选择
     Choose_Function = Main_window.comboBox_functions.currentText()
     Choose_Method = Main_window.comboBox_method.currentText()
-    print(Time, Beginning, Change, Duration,Choose_Function,Choose_Method)
+
+    # 判断选择函数
+
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
