@@ -17,7 +17,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(460, 343)
+        Form.resize(460, 389)
         Form.setMinimumSize(QSize(460, 0))
         Form.setStyleSheet(u"font: 9pt \"HarmonyOS Sans SC\";")
         self.gridLayout_2 = QGridLayout(Form)
@@ -76,7 +76,7 @@ class Ui_Form(object):
         self.verticalFrame = QFrame(Form)
         self.verticalFrame.setObjectName(u"verticalFrame")
         self.verticalFrame.setMinimumSize(QSize(220, 0))
-        self.verticalFrame.setMaximumSize(QSize(250, 16777215))
+        self.verticalFrame.setMaximumSize(QSize(16777215, 16777215))
         self.verticalLayout_2 = QVBoxLayout(self.verticalFrame)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.frame_time = QFrame(self.verticalFrame)
@@ -92,11 +92,11 @@ class Ui_Form(object):
 
         self.horizontalLayout.addWidget(self.label)
 
-        self.lineEdit = QLineEdit(self.frame_time)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setToolTipDuration(5)
+        self.lineEdit_time = QLineEdit(self.frame_time)
+        self.lineEdit_time.setObjectName(u"lineEdit_time")
+        self.lineEdit_time.setToolTipDuration(5)
 
-        self.horizontalLayout.addWidget(self.lineEdit)
+        self.horizontalLayout.addWidget(self.lineEdit_time)
 
 
         self.verticalLayout_2.addWidget(self.frame_time)
@@ -116,10 +116,10 @@ class Ui_Form(object):
 
         self.horizontalLayout_2.addWidget(self.label_2)
 
-        self.lineEdit_2 = QLineEdit(self.frame_beginning)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_beginning = QLineEdit(self.frame_beginning)
+        self.lineEdit_beginning.setObjectName(u"lineEdit_beginning")
 
-        self.horizontalLayout_2.addWidget(self.lineEdit_2)
+        self.horizontalLayout_2.addWidget(self.lineEdit_beginning)
 
 
         self.verticalLayout_2.addWidget(self.frame_beginning)
@@ -139,10 +139,10 @@ class Ui_Form(object):
 
         self.horizontalLayout_3.addWidget(self.label_3)
 
-        self.lineEdit_3 = QLineEdit(self.frame_change)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_change = QLineEdit(self.frame_change)
+        self.lineEdit_change.setObjectName(u"lineEdit_change")
 
-        self.horizontalLayout_3.addWidget(self.lineEdit_3)
+        self.horizontalLayout_3.addWidget(self.lineEdit_change)
 
 
         self.verticalLayout_2.addWidget(self.frame_change)
@@ -151,24 +151,47 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addItem(self.verticalSpacer_6)
 
-        self.frame_6 = QFrame(self.verticalFrame)
-        self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setFrameShape(QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.frame_6)
+        self.frame_Duration = QFrame(self.verticalFrame)
+        self.frame_Duration.setObjectName(u"frame_Duration")
+        self.frame_Duration.setFrameShape(QFrame.StyledPanel)
+        self.frame_Duration.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame_Duration)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.label_4 = QLabel(self.frame_6)
+        self.label_4 = QLabel(self.frame_Duration)
         self.label_4.setObjectName(u"label_4")
 
         self.horizontalLayout_4.addWidget(self.label_4)
 
-        self.lineEdit_4 = QLineEdit(self.frame_6)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
+        self.lineEdit_Duration = QLineEdit(self.frame_Duration)
+        self.lineEdit_Duration.setObjectName(u"lineEdit_Duration")
 
-        self.horizontalLayout_4.addWidget(self.lineEdit_4)
+        self.horizontalLayout_4.addWidget(self.lineEdit_Duration)
 
 
-        self.verticalLayout_2.addWidget(self.frame_6)
+        self.verticalLayout_2.addWidget(self.frame_Duration)
+
+        self.verticalSpacer_7 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_7)
+
+        self.frame_choose = QFrame(self.verticalFrame)
+        self.frame_choose.setObjectName(u"frame_choose")
+        self.frame_choose.setFrameShape(QFrame.StyledPanel)
+        self.frame_choose.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.frame_choose)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.comboBox_functions = QComboBox(self.frame_choose)
+        self.comboBox_functions.setObjectName(u"comboBox_functions")
+
+        self.horizontalLayout_5.addWidget(self.comboBox_functions)
+
+        self.comboBox_method = QComboBox(self.frame_choose)
+        self.comboBox_method.setObjectName(u"comboBox_method")
+
+        self.horizontalLayout_5.addWidget(self.comboBox_method)
+
+
+        self.verticalLayout_2.addWidget(self.frame_choose)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -203,10 +226,10 @@ class Ui_Form(object):
 #endif // QT_CONFIG(whatsthis)
         self.label.setText(QCoreApplication.translate("Form", u"\u5f53\u524d\u65f6\u95f4", None))
 #if QT_CONFIG(tooltip)
-        self.lineEdit.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u9ed8\u8ba4</p></body></html>", None))
+        self.lineEdit_time.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u9ed8\u8ba4</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(statustip)
-        self.lineEdit.setStatusTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u9ed8\u8ba4</p></body></html>", None))
+        self.lineEdit_time.setStatusTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u9ed8\u8ba4</p></body></html>", None))
 #endif // QT_CONFIG(statustip)
         self.label_2.setText(QCoreApplication.translate("Form", u"\u52a8\u753b\u8d77\u70b9", None))
 #if QT_CONFIG(tooltip)
