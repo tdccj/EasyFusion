@@ -3,13 +3,14 @@
 
 from PySide2 import QtCore, QtWidgets, QtGui
 from mainui import Ui_Form
+from easing_functions import *
 
 version = 0.1
 Time = ''
 Beginning = ''
 Change = ''
 Duration = ''
-Function_Easing = []
+Function_Easing = ['linear']
 Method_Easing = []
 Choose_Function = ''
 Choose_Method = ''
@@ -50,6 +51,9 @@ def getdata():
     Choose_Method = Main_window.comboBox_method.currentText()
 
     # 判断选择函数
+    judge(Choose_Function,Choose_Method,Time,Beginning,Change,Duration)
+
+
 
 
 
