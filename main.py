@@ -11,6 +11,8 @@ Change = ''
 Duration = ''
 Function_Easing = []
 Method_Easing = []
+Choose_Function = ''
+Choose_Method = ''
 
 
 
@@ -37,12 +39,16 @@ class Ui(Ui_Form, QtWidgets.QWidget):
 
 def getdata():
     # 获取信息
-    global Time, Beginning, Change, Duration
+    global Time, Beginning, Change, Duration,Choose_Function,Choose_Method
+    # 获取TBCD信息
     Time = Main_window.lineEdit_time.text()
     Beginning = Main_window.lineEdit_beginning.text()
     Change = Main_window.lineEdit_change.text()
     Duration = Main_window.lineEdit_Duration.text()
-
+    # 获取函数选择
+    Choose_Function = Main_window.comboBox_functions.currentText()
+    Choose_Method = Main_window.comboBox_method.currentText()
+    print(Time, Beginning, Change, Duration,Choose_Function,Choose_Method)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
