@@ -9,6 +9,9 @@ Time = ''
 Beginning = ''
 Change = ''
 Duration = ''
+Function_Easing = []
+Method_Easing = []
+
 
 
 class Ui(Ui_Form, QtWidgets.QWidget):
@@ -24,7 +27,9 @@ class Ui(Ui_Form, QtWidgets.QWidget):
         # 设置标题
         self.setWindowTitle(f" EasyFusion {version}")
 
-        self.frame
+        # 设置缓动函数选择框
+        self.comboBox_functions.addItems(Function_Easing)
+        self.comboBox_method.addItems(Method_Easing)
 
         self.pushButton.clicked.connect(getdata)
 
