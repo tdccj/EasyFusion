@@ -35,6 +35,9 @@ class Ui(Ui_Form, QtWidgets.QWidget):
         self.comboBox_functions.addItems(Function_Easing)
         self.comboBox_method.addItems(Method_Easing)
 
+        # 设置默认值
+        self.lineEdit_time.setText('(time/comp:GetPrefs("Comp.FrameFormat.Rate"))')
+
         self.pushButton.clicked.connect(getdata)
 
         self.comboBox_functions.currentIndexChanged.connect(switch)
