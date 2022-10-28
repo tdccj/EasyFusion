@@ -10,8 +10,8 @@ Time = ''
 Beginning = ''
 Change = ''
 Duration = ''
-Function_Easing = ['quadratic','linear']    # linear不得在第一
-Method_Easing = ['In','Out','InOut']
+Function_Easing = ['quadratic','linear','sinusoidal']    # linear不得在第一
+Method_Easing = ['In','Out']    # 暂时没有'InOut'选项
 Choose_Function = ''
 Choose_Method = ''
 
@@ -50,13 +50,6 @@ def switch():
     else:
         Main_window.comboBox_method.clear()
         Main_window.comboBox_method.addItems(Method_Easing)
-
-
-
-
-
-
-
 
 
 

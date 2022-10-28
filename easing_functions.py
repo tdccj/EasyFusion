@@ -1,9 +1,13 @@
 # coding=utf-8
 # 用于储存缓动函数并判断输出
-function = ''
+import math
+
+function = ''   # 此变量的值为达芬奇fusion表达式格式
+function_py = ''    # 此表达式值为python np格式
 
 
 def linear(Choose_Method, t, b, c, d):
+    # 线性
     global function
     function = f'{c} * {t} / {d} + {b}'
     print('1')
@@ -11,12 +15,21 @@ def linear(Choose_Method, t, b, c, d):
 
 
 def quadratic(Choose_Method, t, b, c, d):
+    # 二次渐变
     global function
     if Choose_Method == 'In':
         function = f'{c}*({t}/{d})*{t}/{d}+{b}'
-    if Choose_Method == 'Out':
+    elif Choose_Method == 'Out':
         function = f'-{c}*({t}/{d})*({t}/{d}-2)+{b}'
+    return function
 
+def sinusoidal(Choose_Method, t, b, c, d):
+    # 正弦渐变
+    global function
+    if Choose_Method == 'In':
+        function = f"-{c} * cos({t} / {d} * (pi / 2)) + {c} + {b}"
+    elif Choose_Method == 'Out':
+        function = f"{c} * sin({t} / {d} * (pi / 2)) + {b}"
     return function
 
 
