@@ -39,6 +39,7 @@ def judge(Choose_Function, Choose_Method, t, b, c, d):
     dict_function = {
         'linear': linear,
         'quadratic': quadratic,
+        'sinusoidal': sinusoidal
     }
     function = dict_function[Choose_Function](Choose_Method, t, b, c, d)
     return function
