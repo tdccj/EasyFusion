@@ -17,7 +17,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(460, 389)
+        Form.resize(460, 406)
         Form.setMinimumSize(QSize(460, 0))
         Form.setStyleSheet(u"font: 9pt \"HarmonyOS Sans SC\";")
         self.gridLayout_2 = QGridLayout(Form)
@@ -70,6 +70,13 @@ class Ui_Form(object):
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout = QVBoxLayout(self.frame_2)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label_photo = QLabel(self.frame_2)
+        self.label_photo.setObjectName(u"label_photo")
+
+        self.verticalLayout.addWidget(self.label_photo)
+
 
         self.gridLayout_2.addWidget(self.frame_2, 0, 2, 1, 1)
 
@@ -218,6 +225,7 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.frame_2.setToolTip("")
 #endif // QT_CONFIG(tooltip)
+        self.label_photo.setText(QCoreApplication.translate("Form", u"the next", None))
 #if QT_CONFIG(tooltip)
         self.label.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u9ed8\u8ba4\u4e3a\u79d2</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -231,6 +239,9 @@ class Ui_Form(object):
 #if QT_CONFIG(statustip)
         self.lineEdit_time.setStatusTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u9ed8\u8ba4</p></body></html>", None))
 #endif // QT_CONFIG(statustip)
+#if QT_CONFIG(tooltip)
+        self.label_2.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u52a8\u753b\u5f00\u59cb\u7684\u503c\uff0c\u800c\u4e0d\u662f\u65f6\u95f4</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.label_2.setText(QCoreApplication.translate("Form", u"\u52a8\u753b\u8d77\u70b9", None))
 #if QT_CONFIG(tooltip)
         self.label_3.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u4ece\u5f00\u59cb\u5230\u7ed3\u675f\u8f93\u51fa\u503c\u7684\u53d8\u5316\u5dee\u503c</p></body></html>", None))

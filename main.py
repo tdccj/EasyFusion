@@ -5,6 +5,9 @@ from PySide2 import QtCore, QtWidgets, QtGui
 from mainui import Ui_Form
 from easing_functions import *
 
+import numpy as np
+from matplotlib import pyplot as plt
+
 version = 0.1
 Time = ''
 Beginning = ''
@@ -44,6 +47,7 @@ class Ui(Ui_Form, QtWidgets.QWidget):
 
 
 
+
 def switch():
     # 用于切换线性和函数
     print(Main_window.comboBox_functions.currentText())
@@ -75,6 +79,12 @@ def getdata():
 def export(function_export):
     # 用于显示输出
     Main_window.plainTextEdit_export.setPlainText(function_export)
+
+    # 设置函数图片显示
+
+
+    Main_window.label_photo.setPixmap()
+    Main_window.label_photo.setScaledContents(True)
 
 
 
