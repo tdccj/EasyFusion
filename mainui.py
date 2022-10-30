@@ -17,7 +17,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(460, 406)
+        Form.resize(460, 432)
         Form.setMinimumSize(QSize(460, 0))
         Form.setStyleSheet(u"font: 9pt \"HarmonyOS Sans SC\";")
         self.gridLayout_2 = QGridLayout(Form)
@@ -31,18 +31,14 @@ class Ui_Form(object):
         self.frame.setMinimumSize(QSize(0, 0))
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frame)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.horizontalLayout_6 = QHBoxLayout(self.frame)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.pushButton = QPushButton(self.frame)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setMinimumSize(QSize(0, 0))
         self.pushButton.setToolTipDuration(-1)
 
-        self.verticalLayout_3.addWidget(self.pushButton)
-
-        self.verticalSpacer_3 = QSpacerItem(0, 5, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.verticalLayout_3.addItem(self.verticalSpacer_3)
+        self.horizontalLayout_6.addWidget(self.pushButton)
 
 
         self.gridLayout_2.addWidget(self.frame, 2, 1, 1, 1)
@@ -72,10 +68,10 @@ class Ui_Form(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout = QVBoxLayout(self.frame_2)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label_photo = QLabel(self.frame_2)
-        self.label_photo.setObjectName(u"label_photo")
+        self.graphicsView = QGraphicsView(self.frame_2)
+        self.graphicsView.setObjectName(u"graphicsView")
 
-        self.verticalLayout.addWidget(self.label_photo)
+        self.verticalLayout.addWidget(self.graphicsView)
 
 
         self.gridLayout_2.addWidget(self.frame_2, 0, 2, 1, 1)
@@ -200,6 +196,11 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addWidget(self.frame_choose)
 
+        self.checkBox_autoEasing = QCheckBox(self.verticalFrame)
+        self.checkBox_autoEasing.setObjectName(u"checkBox_autoEasing")
+
+        self.verticalLayout_2.addWidget(self.checkBox_autoEasing)
+
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_2.addItem(self.verticalSpacer_2)
@@ -225,7 +226,9 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.frame_2.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.label_photo.setText(QCoreApplication.translate("Form", u"the next", None))
+#if QT_CONFIG(tooltip)
+        self.graphicsView.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u672a\u5b8c\u5de5</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.label.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u9ed8\u8ba4\u4e3a\u79d2</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -251,5 +254,6 @@ class Ui_Form(object):
         self.label_4.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>\u5355\u4f4d\u8981\u4e0e\u5f53\u524d\u65f6\u95f4\u7edf\u4e00</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.label_4.setText(QCoreApplication.translate("Form", u"\u6301\u7eed\u65f6\u95f4", None))
+        self.checkBox_autoEasing.setText(QCoreApplication.translate("Form", u"\u81ea\u52a8\u7f13\u52a8\uff08\u81ea\u52a8\u6dfb\u52a0iif\uff09", None))
     # retranslateUi
 

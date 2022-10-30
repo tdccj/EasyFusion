@@ -5,20 +5,20 @@ from PySide2 import QtCore, QtWidgets, QtGui
 from mainui import Ui_Form
 from easing_functions import *
 
-import numpy as np
-from matplotlib import pyplot as plt
+# import numpy as np
+# from matplotlib import pyplot as plt
 
-version = 0.1
+version = 0.2
 Time = ''
 Beginning = ''
 Change = ''
 Duration = ''
-Function_Easing = ['quadratic','linear','sinusoidal']    # linear不得在第一
-Method_Easing = ['In','Out']    # 暂时没有'InOut'选项
+Function_Easing = ['quadratic', 'linear', 'sinusoidal']  # linear不得在第一
+Method_Easing = ['In', 'Out']  # 暂时没有'InOut'选项
 Choose_Function = ''
 Choose_Method = ''
-
-
+check_autoEasing = True
+function_export = ''
 
 
 class Ui(Ui_Form, QtWidgets.QWidget):
@@ -38,14 +38,15 @@ class Ui(Ui_Form, QtWidgets.QWidget):
         self.comboBox_functions.addItems(Function_Easing)
         self.comboBox_method.addItems(Method_Easing)
 
+        # 设置自动缓动选项
+        self.checkBox_autoEasing.setChecked(True)
+
         # 设置默认值
         self.lineEdit_time.setText('(time/comp:GetPrefs("Comp.FrameFormat.Rate"))')
 
         self.pushButton.clicked.connect(getdata)
 
         self.comboBox_functions.currentIndexChanged.connect(switch)
-
-
 
 
 def switch():
@@ -59,10 +60,9 @@ def switch():
         Main_window.comboBox_method.addItems(Method_Easing)
 
 
-
 def getdata():
     # 获取信息并判断
-    global Time, Beginning, Change, Duration,Choose_Function,Choose_Method
+    global Time, Beginning, Change, Duration, Choose_Function, Choose_Method, function_export
     # 获取TBCD信息
     Time = Main_window.lineEdit_time.text()
     Beginning = Main_window.lineEdit_beginning.text()
@@ -73,21 +73,30 @@ def getdata():
     Choose_Method = Main_window.comboBox_method.currentText()
 
     # 判断选择函数并输出
-    function_export = judge(Choose_Function,Choose_Method,Time,Beginning,Change,Duration)
-    export(function_export)
+    function_export = judge(Choose_Function, Choose_Method, Time, Beginning, Change, Duration)
+    export()
 
-def export(function_export):
+
+def export():
     # 用于显示输出
-    Main_window.plainTextEdit_export.setPlainText(function_export)
 
-    # 设置函数图片显示
+    # 用于判断显示输出
+    if Main_window.checkBox_autoEasing.isChecked():
+        auto_easing()
+        Main_window.plainTextEdit_export.setPlainText(function_export)
+    else:
+        Main_window.plainTextEdit_export.setPlainText(function_export)
+
+    # 设置函数图片显示(未完成）
+    #
+    # Main_window.graphicsView.set
+    # Main_window.label_photo.setScaledContents(True)
 
 
-    Main_window.label_photo.setPixmap()
-    Main_window.label_photo.setScaledContents(True)
-
-
-
+def auto_easing():
+    # 设置自动缓动
+    global function_export
+    function_export = f'iif({Time}<{Duration},{function_export},{float(Beginning) + float(Change)})'
 
 
 if __name__ == "__main__":
