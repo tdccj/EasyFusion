@@ -100,6 +100,7 @@ def auto_easing():
 
 
 if __name__ == "__main__":
+    print("请不要将程序文件夹放置在程序无法访问到的地方\n如nas、网盘等挂载分区上，否则可能不会显示GUI窗口")
     app = QtWidgets.QApplication([])
     Main_window = Ui()
     Main_window.set_main()
