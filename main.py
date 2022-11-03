@@ -1,7 +1,8 @@
 # coding=utf-8
 # 用于编写达芬奇fusion表达式
 
-from PySide2 import QtCore, QtWidgets, QtGui
+from PySide2.QtWidgets import QWidget, QApplication
+from PySide2.QtGui import QIcon
 from mainui import Ui_Form
 from easing_functions import *
 
@@ -13,7 +14,7 @@ Time = ''
 Beginning = ''
 Change = ''
 Duration = ''
-Function_Easing = ['quadratic', 'linear', 'sinusoidal','exponential']  # linear不得在第一
+Function_Easing = ['quadratic', 'linear', 'sinusoidal', 'exponential']  # linear不得在第一
 Method_Easing = ['In', 'Out']  # 暂时没有'InOut'选项
 Choose_Function = ''
 Choose_Method = ''
@@ -21,7 +22,7 @@ check_autoEasing = True
 function_export = ''
 
 
-class Ui(Ui_Form, QtWidgets.QWidget):
+class Ui(Ui_Form, QWidget):
     def __init__(self):
         # 初始化
         super().__init__()
@@ -29,7 +30,7 @@ class Ui(Ui_Form, QtWidgets.QWidget):
 
     def set_main(self):
         # 设置logo
-        self.setWindowIcon(QtGui.QIcon('logo_fang_1.ico'))
+        self.setWindowIcon(QIcon('logo_fang_1.ico'))
 
         # 设置标题
         self.setWindowTitle(f" EasyFusion {version}")
@@ -47,6 +48,12 @@ class Ui(Ui_Form, QtWidgets.QWidget):
         self.pushButton.clicked.connect(getdata)
 
         self.comboBox_functions.currentIndexChanged.connect(switch)
+
+
+def print_readme():
+    # 打印readme信息
+    with open(r'README.md','r',encoding='utf-8') as info:
+        print(info.read())
 
 
 def switch():
@@ -83,12 +90,12 @@ def export():
     # 如果出现--替换为空
     global function_export
     num = 0
-    while function_export.find('--',num) != -1:
-        num = function_export.find('--',num)
+    while function_export.find('--', num) != -1:
+        num = function_export.find('--', num)
         front = function_export[:num]
-        behind = function_export[num+2:]
+        behind = function_export[num + 2:]
         function_export = front + behind
-        num = num+1
+        num = num + 1
 
     # 用于判断显示输出
     if Main_window.checkBox_autoEasing.isChecked():
@@ -109,10 +116,10 @@ def auto_easing():
     function_export = f'iif({Time}<{Duration},{function_export},{float(Beginning) + float(Change)})'
 
 
-
 if __name__ == "__main__":
-    print("请不要将程序文件夹放置在程序无法访问到的地方\n如nas、网盘等挂载分区上，否则可能不会显示GUI窗口")
-    app = QtWidgets.QApplication([])
+    print("!!请不要将程序文件夹放置在程序无法访问到的地方\n如nas、网盘等挂载分区上，否则可能不会显示GUI窗口\n")
+    print_readme()
+    app = QApplication([])
     Main_window = Ui()
     Main_window.set_main()
     Main_window.show()
