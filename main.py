@@ -13,7 +13,7 @@ Time = ''
 Beginning = ''
 Change = ''
 Duration = ''
-Function_Easing = ['quadratic', 'linear', 'sinusoidal']  # linear不得在第一
+Function_Easing = ['quadratic', 'linear', 'sinusoidal','exponential']  # linear不得在第一
 Method_Easing = ['In', 'Out']  # 暂时没有'InOut'选项
 Choose_Function = ''
 Choose_Method = ''
@@ -80,6 +80,16 @@ def getdata():
 def export():
     # 用于显示输出
 
+    # 如果出现--替换为空
+    global function_export
+    num = 0
+    while function_export.find('--',num) != -1:
+        num = function_export.find('--',num)
+        front = function_export[:num]
+        behind = function_export[num+2:]
+        function_export = front + behind
+        num = num+1
+
     # 用于判断显示输出
     if Main_window.checkBox_autoEasing.isChecked():
         auto_easing()
@@ -97,6 +107,7 @@ def auto_easing():
     # 设置自动缓动
     global function_export
     function_export = f'iif({Time}<{Duration},{function_export},{float(Beginning) + float(Change)})'
+
 
 
 if __name__ == "__main__":
