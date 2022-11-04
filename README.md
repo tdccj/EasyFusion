@@ -5,6 +5,7 @@ https://github.com/tdccj/EasyFusion/tree/master/dist
 
 0.1.6 之前支持线性和二次函数
 0.1.6 支持正弦函数
+
 0.2 支持自动缓动（自动生成iif语句）
 0.2.2 修复当参数为负数时输出无法被fusion识别的bug
 0.2.3 略微重构代码，使用upx压缩打包，体积减半

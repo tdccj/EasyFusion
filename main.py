@@ -1,8 +1,7 @@
 # coding=utf-8
 # 用于编写达芬奇fusion表达式
 
-from PySide2.QtWidgets import QWidget, QApplication
-from PySide2.QtGui import QIcon
+from PySide2 import QtCore, QtWidgets, QtGui
 from mainui import Ui_Form
 from easing_functions import *
 
@@ -22,7 +21,7 @@ check_autoEasing = True
 function_export = ''
 
 
-class Ui(Ui_Form, QWidget):
+class Ui(Ui_Form, QtWidgets.QWidget):
     def __init__(self):
         # 初始化
         super().__init__()
@@ -30,7 +29,7 @@ class Ui(Ui_Form, QWidget):
 
     def set_main(self):
         # 设置logo
-        self.setWindowIcon(QIcon('logo_fang_1.ico'))
+        self.setWindowIcon(QtGui.QIcon('logo_fang_1.ico'))
 
         # 设置标题
         self.setWindowTitle(f" EasyFusion {version}")
@@ -48,12 +47,6 @@ class Ui(Ui_Form, QWidget):
         self.pushButton.clicked.connect(getdata)
 
         self.comboBox_functions.currentIndexChanged.connect(switch)
-
-
-def print_readme():
-    # 打印readme信息
-    with open(r'README.md','r',encoding='utf-8') as info:
-        print(info.read())
 
 
 def switch():
@@ -117,9 +110,10 @@ def auto_easing():
 
 
 if __name__ == "__main__":
-    print("!!请不要将程序文件夹放置在程序无法访问到的地方\n如nas、网盘等挂载分区上，否则可能不会显示GUI窗口\n")
-    print_readme()
-    app = QApplication([])
+    print("!请不要将程序文件夹放置在程序无法访问到的地方\n如nas、网盘等挂载分区上，否则可能不会显示GUI窗口\n")
+    print("新版本、更新公告、问题反馈请前往：\nhttps://github.com/tdccj/EasyFusion/tree/master\n")
+    print("!!!暂时请绝对不要使用exponential(指数)函数，\n有可能导致fusion无法启动(重装达芬奇无解，可能是vc库或别的地方出现了问题)")
+    app = QtWidgets.QApplication([])
     Main_window = Ui()
     Main_window.set_main()
     Main_window.show()
