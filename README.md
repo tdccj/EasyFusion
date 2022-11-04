@@ -1,8 +1,6 @@
 # EasyFusion
 用于编写达芬奇（davinci）的fusion表达式
 
-https://github.com/tdccj/EasyFusion/tree/master/dist
-
 0.1.6 之前支持线性和二次函数
 0.1.6 支持正弦函数
 
